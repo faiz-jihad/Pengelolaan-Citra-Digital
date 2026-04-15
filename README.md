@@ -1,270 +1,59 @@
-# Image Enhancement Project: Sharpening and Contrast Adjustment
+Markdown# 🖼️ Image Enhancement Project: Sharpening and Contrast Adjustment
 
-## Overview
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-Library-green.svg)](https://opencv.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 
-This project implements advanced image enhancement techniques using Python, focusing on sharpening blurred images and improving contrast using CLAHE (Contrast Limited Adaptive Histogram Equalization). Developed as part of the Digital Image Processing course, this implementation demonstrates practical applications of computer vision algorithms.
+This repository implements advanced spatial domain filtering and histogram equalization techniques. Developed as part of the Digital Image Processing course, this implementation demonstrates practical applications of computer vision algorithms, serving as an excellent foundational preprocessing step for complex architectures like MobileNetV2.
 
-## Features
+---
 
-- **Image Sharpening**: Utilizes unsharp masking technique to restore sharpness in blurred images
-- **Contrast Enhancement**: Implements CLAHE for adaptive contrast improvement without over-enhancement
-- **Professional Visualization**: Side-by-side comparison of original and enhanced images
-- **High-Quality Output**: Saves processed images with optimized quality settings
-- **Modular Code**: Well-structured functions with comprehensive error handling
+<details open>
+<summary><h2>🇬🇧 English Documentation</h2></summary>
 
-## Technologies Used
+### 🌟 Features
 
-- **Python 3.x**
-- **OpenCV** - Computer vision library
-- **NumPy** - Numerical computing
-- **Matplotlib** - Data visualization
-- **Jupyter Notebook** - Interactive development environment
+- **Image Sharpening**: Utilizes an unsharp masking technique with a specific $3 \times 3$ convolution kernel to restore sharpness in blurred images.
+- **Contrast Enhancement**: Implements CLAHE (Contrast Limited Adaptive Histogram Equalization) by isolating the Luminance channel in the LAB color space for adaptive contrast improvement without over-exposure.
+- **Professional Visualization**: Side-by-side comparison of original and enhanced images.
 
-## Project Structure
+### 📁 Project Structure
 
-```
+```text
 Image-Enhancement/
 │
-├── images/                    # Input images directory
+├── images/                   # Input images directory
 │   ├── blured.jpg            # Blurred image sample
 │   └── contrast.png          # Low-contrast image sample
 │
-├── hasil/                     # Output directory
+├── hasil/                    # Output directory
 │   ├── hasil_sharpen.jpg     # Sharpened image output
 │   └── hasil_clahe.jpg       # CLAHE enhanced image output
 │
-├── venv/                      # Python virtual environment
-├── Image-enhanced.ipynb       # Main Jupyter notebook
-├── README.md                  # Project documentation
-└── requirements.txt           # Python dependencies
-```
-
-## Installation
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone <repository-url>
-   cd image-enhancement-project
-   ```
-
-2. **Create virtual environment**:
-
-   ```bash
-   python -m venv venv
-   ```
-
-3. **Activate virtual environment**:
-   - Windows: `venv\Scripts\activate`
-   - Linux/Mac: `source venv/bin/activate`
-
-4. **Install dependencies**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Launch Jupyter Notebook**:
-   ```bash
-   jupyter notebook
-   ```
-
-## Usage
-
-1. Open `Image-enhanced.ipynb` in Jupyter Notebook
-2. Execute cells sequentially to:
-   - Load input images
-   - Apply sharpening algorithm
-   - Apply CLAHE contrast enhancement
-   - Visualize results
-   - Save enhanced images
-
-## Key Functions
-
-### `unsharp_mask(image, sigma=2.0, strength=2.0)`
-
-Applies unsharp masking for image sharpening.
-
-### `apply_clahe(image, clip_limit=4.0, tile_grid_size=(8,8))`
-
-Enhances image contrast using CLAHE algorithm.
-
-### `plot_comparison(original, processed, title_original, title_processed)`
-
-Creates professional before/after image comparisons.
-
-## Results
-
-The project successfully demonstrates:
-
-- Significant improvement in image sharpness
-- Enhanced contrast without artifacts
-- Maintains natural image appearance
-- High-quality output suitable for further processing
-
-## Academic Context
-
-This project was developed for the **Digital Image Processing** course, showcasing practical implementation of:
-
-- Spatial domain filtering
-- Histogram equalization techniques
-- Adaptive image enhancement algorithms
-
-## License
-
-This project is developed for educational purposes.
-
-## Author
-
-[Your Name] - Digital Image Processing Course Project
-
----
-
-## ⚙️ Instalasi
-
-### 1. Clone / Download Project
-
-```bash
-git clone <repository-url>
+├── venv/                     # Python virtual environment
+├── Image-enhanced.ipynb      # Main Jupyter notebook
+├── README.md                 # Project documentation
+└── requirements.txt          # Python dependencies
+⚙️ Installation & UsageClone the repository & enter the directory:Bashgit clone <repository-url>
+cd image-enhancement-project
+Create and activate the virtual environment:Bashpython -m venv venv
+# Windows: venv\Scripts\activate
+# Linux/Mac: source venv/bin/activate
+Install dependencies:Bashpip install -r requirements.txt
+Launch Jupyter Notebook: Open Image-enhanced.ipynb and run the cells sequentially.Bashjupyter notebook
+🔬 Methodology & Key Functions1. Sharpening (unsharp_mask)Utilizes the following convolution kernel to emphasize object edges and reduce blur:Pythonkernel = [[-1, -1, -1],
+          [-1,  9, -1],
+          [-1, -1, -1]]
+2. Contrast Enhancement (apply_clahe)Steps performed:Convert image from BGR → LAB color space.Extract the L (Luminance) channel.Apply CLAHE algorithm.Merge channels and convert back to BGR.📊 ResultsImage Sharpening<p align="center"><img src="images/blured.jpg" width="45%" alt="Original Blurred Image"><img src="hasil/hasil_sharpen.jpg" width="45%" alt="Sharpened Image"></p>Contrast Enhancement (CLAHE)<p align="center"><img src="images/contrast.png" width="45%" alt="Original Low Contrast Image"><img src="hasil/hasil_clahe.jpg" width="45%" alt="CLAHE Enhanced Image"></p></details><details><summary><h2>🇮🇩 Dokumentasi Bahasa Indonesia</h2></summary>🌟 Fitur UtamaImage Sharpening: Menggunakan kernel konvolusi $3 \times 3$ untuk menonjolkan tepi objek dan mengurangi efek blur pada citra.Contrast Enhancement: Mengimplementasikan algoritma CLAHE pada channel luminance (ruang warna LAB) untuk meningkatkan kontras lokal tanpa menyebabkan over-exposure.Visualisasi Komprehensif: Menampilkan perbandingan before-after secara langsung menggunakan Matplotlib.⚙️ Instalasi & Cara MenjalankanClone repositori:Bashgit clone <repository-url>
 cd project
-```
-
-### 2. Buat Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### 3. Aktifkan Virtual Environment
-
-**Windows:**
-
-```bash
-venv\Scripts\activate
-```
-
-**Linux / Mac:**
-
-```bash
-source venv/bin/activate
-```
-
----
-
-### 4. Install Dependencies
-
-```bash
-pip install opencv-python numpy matplotlib notebook ipykernel
-```
-
----
-
-### 5. Jalankan Jupyter Notebook
-
-```bash
-jupyter notebook
-```
-
-Lalu buka:
-
-```
-Image-enhanced.ipynb
-```
-
----
-
-## 🚀 Cara Menjalankan
-
-1. Pastikan semua dependency sudah terinstall
-2. Jalankan Jupyter Notebook
-3. Run semua cell secara berurutan
-4. Hasil akan ditampilkan dalam bentuk visual (before–after)
-
----
-
-## 🔍 Metode yang Digunakan
-
-### 1. Sharpening
-
-Menggunakan kernel konvolusi:
-
-```python
-kernel = [[-1,-1,-1],
-          [-1, 9,-1],
-          [-1,-1,-1]]
-```
-
-Fungsi:
-
-- Menonjolkan tepi objek
-- Mengurangi efek blur
-
----
-
-### 2. CLAHE
-
-Langkah:
-
-1. Konversi BGR → LAB
-2. Ambil channel L (luminance)
-3. Terapkan CLAHE
-4. Gabungkan kembali
-
-Fungsi:
-
-- Meningkatkan kontras lokal
-- Menghindari over-exposure
-
----
-
-## 📊 Hasil
-
-### 🔹 Sharpening
-
-- Sebelum: gambar blur
-- Sesudah: tepi objek lebih tajam
-
-### 🔹 CLAHE
-
-- Sebelum: kontras rendah
-- Sesudah: detail lebih terlihat
-
----
-
-## 🧠 Analisis
-
-- Sharpening efektif untuk meningkatkan ketajaman, tetapi berpotensi menambah noise
-- CLAHE lebih baik dibanding histogram equalization global karena menjaga detail lokal
-- Kombinasi kedua metode memberikan hasil yang optimal
-
----
-
-## 📌 Output
-
-Hasil akan disimpan sebagai:
-
-- `hasil_sharpen.jpg`
-- `hasil_clahe.jpg`
-
----
-
-## ❗ Catatan
-
-- Pastikan file gambar berada di folder yang sama
-- Jangan menjalankan `.ipynb` dengan Python langsung
-- Gunakan Jupyter Notebook / VS Code
-
----
-
-## 👨‍💻 Author
-
-**Nama:** Faiz Jihad A.
-**Mata Kuliah:** Pengolahan Citra Digital
-
----
-
-## 📄 Lisensi
-
-Digunakan untuk keperluan pembelajaran dan akademik.
-
----
+Buat dan Aktifkan Virtual Environment:Bashpython -m venv venv
+# Windows: venv\Scripts\activate
+# Linux/Mac: source venv/bin/activate
+Install Dependencies:Bashpip install opencv-python numpy matplotlib notebook ipykernel
+Jalankan Jupyter Notebook: Buka file Image-enhanced.ipynb dan run semua cell secara berurutan.Bashjupyter notebook
+🔍 Metode yang Digunakan1. SharpeningMenggunakan kernel konvolusi berikut untuk ekstraksi fitur tepi:Pythonkernel = [[-1, -1, -1],
+          [-1,  9, -1],
+          [-1, -1, -1]]
+2. CLAHE (Contrast Limited Adaptive Histogram Equalization)Langkah pemrosesan:Konversi ruang warna citra dari BGR → LAB.Ambil channel L (Luminance).Terapkan CLAHE pada channel tersebut.Gabungkan kembali channel dan konversi ke BGR.🧠 AnalisisSharpening sangat efektif untuk meningkatkan ketajaman citra, namun perlu diperhatikan karena berpotensi menambah noise jika parameter terlalu tinggi.CLAHE memberikan hasil yang jauh lebih baik dibandingkan histogram equalization global biasa karena mampu menjaga detail lokal gambar.Kombinasi teknik-teknik ini memberikan fondasi preprocessing yang sangat optimal untuk analisis citra lebih lanjut.❗ Catatan TambahanPastikan file gambar (blured.jpg dan contrast.png) berada di dalam folder images/.Jangan menjalankan file .ipynb langsung menggunakan Python standar (gunakan Jupyter Notebook atau VS Code yang mendukung notebook).</details>👨‍💻 AuthorFaiz Jihad Al Baihaqi Teknik Informatika - Politeknik Negeri Indramayu (Polindra) Digital Image Processing Course Project📄 LicenseProyek ini dikembangkan untuk keperluan pembelajaran dan akademik.
+**Langkah selanjutnya:**
+Pastikan kamu benar-benar memiliki folder `images` dan `hasil` di dalam repositorimu
