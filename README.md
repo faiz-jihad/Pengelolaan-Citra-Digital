@@ -188,7 +188,7 @@ Hasil akan disimpan sebagai:
 
 ## 👨‍💻 Author
 
-**Nama:** [Nama Anda]
+**Nama:** Faiz Jihad A.
 **Mata Kuliah:** Pengolahan Citra Digital
 
 ---
