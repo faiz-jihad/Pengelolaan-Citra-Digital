@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^powershell -Command \"Get-Content 'd:\\\\Kuliah D3 TI\\\\Semester 4\\\\Pengolahan citra Digital\\\\pcdtask\\\\Sharpen Contrast & Blur\\\\generate_laporan\\.py' \\| Select-Object -Index \\(55\\.\\.70\\)\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}
